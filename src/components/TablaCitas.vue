@@ -2,7 +2,7 @@
 import { defineProps } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import FetchCitas from '../components/fetch/fetch_citas.vue'
-
+import Nav from './Nav.vue'
 const props = defineProps({
     citas: {
         type: Array,
@@ -16,10 +16,7 @@ const props = defineProps({
         <div class="titulo">
             <h1>Tablas que Raul quería consumir</h1>
         </div>
-        <nav>
-            <RouterLink to="/tablacitas">Citas</RouterLink>
-            <RouterLink to="/tabladoctor">Consultas</RouterLink>
-        </nav>
+        <Nav />
         <RouterView />
         <FetchCitas>
         <template v-slot="{ citas }">
@@ -54,29 +51,6 @@ const props = defineProps({
 
 <style scoped>
 
-nav {
-    width: 100%;
-    font-size: 12px;
-    text-align: center;
-}
-
-nav a.router-link-exact-active {
-    color : var(--color-text);
-}   
-
-nav a.router-link-exact-active:hover {
-    background-color: transparent;
-}
-
-nav a {
-    display: inline-block;
-    border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-    border: 0;
-}
-
 @media (min-width: 1024px) {
     .tabla_citas {
         min-height: 100vh;
@@ -102,11 +76,5 @@ nav a:first-of-type {
     th {
         background-color: #3f3f3f;
     }
-    nav {
-        text-align: left;
-        font-size: 1rem;
-        padding: 1rem 0;
-    }
-
 }
 </style>
